@@ -42,7 +42,6 @@ def calc_probability(vocabulary, one_hot_m, model, words):
   return probability
 
 
-dataset_test = pickle.load(open("test_dataset", "rb"))
 vocabulary = pickle.load(open("vocabulary", "rb"))
 model = pickle.load(open("model-final.bin", "rb"))
 
