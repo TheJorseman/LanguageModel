@@ -1,6 +1,9 @@
 import numpy as np
 
 class DataLoader(object):
+  """
+  Clase para cargar los datos en batches y hacer mas eficiente el procesamiento de los datos.
+  """
   def __init__(self, dataset, batch_size=1):
     self.dataset = dataset
     self.batch_size = batch_size

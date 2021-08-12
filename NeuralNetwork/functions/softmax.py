@@ -3,6 +3,9 @@ import numpy as np
 from NeuralNetwork.functions.activationfunctions import ActivationF
 
 class Softmax(ActivationF):
+  """
+  Se define la función Softmax y su derivada.
+  """
   def forward(self, x):
     e_x = np.exp(x - np.max(x))
     return e_x / e_x.sum(-1, keepdims=True)
@@ -10,4 +13,3 @@ class Softmax(ActivationF):
   def derivate(self, x):
     s = x.reshape(-1,1)
     return np.diagflat(s) - np.dot(s, s.T)
-

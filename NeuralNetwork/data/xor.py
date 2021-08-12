@@ -3,6 +3,9 @@ import numpy as np
 from NeuralNetwork.data.dataset import Dataset
 
 class XOR_DataLoader(Dataset):
+  """
+  Se creo este método para probar la interacción de todos los módulos definidos asi como se vio en clase.
+  """
   def __init__(self):
     self.x = np.array([[0,1],[1,0],[0,0],[1,1]])
     self.y = np.array([[0,1],[0,1],[1,0],[1,0]])

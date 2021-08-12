@@ -4,14 +4,14 @@ import string
 from nltk.stem import SnowballStemmer
 # Se establece el stemmer y se configura para el español.
 stemmer = SnowballStemmer('spanish')
-#EOS_punct = {'.',';',':','?', '!', '...'}
+#EOS_punct_add = {'.',';',':','?', '!', '...'}
 EOS_punct = {'.'}
 BOS_punct = set()
 #TEMP_BOS = '-'
 #BOS_punct = {'¿', '¡',TEMP_BOS}
-
+ADDITIONAL = {';',':','?', '!', '...','¿', '¡','-'}
 # Se construye el conjunto de signos de puntuación adicionalmente se añaden estos caracteres ya que en español si se usan.
-exclude = set(string.punctuation + "<>" + string.digits ) - EOS_punct - BOS_punct
+exclude = set(string.punctuation + "<>" + string.digits ).union(ADDITIONAL) - EOS_punct - BOS_punct
 
 def clean_punctuation_line(line):
   """
