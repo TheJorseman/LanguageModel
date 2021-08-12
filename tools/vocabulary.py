@@ -25,3 +25,4 @@ def create_vocabulary(text, token_oov=out_of_vocabulary_token, freq=1):
   vocabulary = get_types(text.replace(split_token, " "))
   vocabulary.pop('', None)
   return replace_freq_to_oov(vocabulary, freq, token_oov) 
+  

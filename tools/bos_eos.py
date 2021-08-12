@@ -14,3 +14,7 @@ def insert_bos_eos(corpus):
   if new_corpus.endswith(eos_token + " "):
     new_corpus = new_corpus[:-len(replace_sentence)]
   return bos_token + " "+ new_corpus + " " + eos_token + " " + out_of_vocabulary_token
+
+def get_reduced_corpus(corpus, length):
+  reduced = corpus.split(split_token)[:length]
+  return split_token.join(reduced)
