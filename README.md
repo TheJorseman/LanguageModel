@@ -21,10 +21,12 @@ loss = CrossEntropyLoss()
 
 optimizer = SGD(model, loss, lr=learning_rate, batch_size=batch_size)
 ```
-También se definen utilidades para entrenar redes neuronales de tipo feed forward. El código esta basado en numpy por lo que la optimización con CUDA no está disponible y se requiere de poder de cómputo solamente en CPU.
+También se definen utilidades para entrenar redes neuronales de tipo feed forward. El código esta basado en numpy por lo que la optimización con CUDA NO está disponible y se requiere de poder de cómputo solamente en CPU.
 
 Todo el código se hizo from scratch y se puede consultar la estructura en la carpeta NeuralNetwork.
-## Uso
+## Requerimientos
+
+### PIP
 
 Para usar, los requerimientos es necesario tener [pip](https://pip.pypa.io/en/stable/) y ejecutar el siguiente comando.
 
@@ -32,11 +34,26 @@ Para usar, los requerimientos es necesario tener [pip](https://pip.pypa.io/en/st
 pip3 install -r requierements.txt
 ```
 
-O con [Anaconda](https://www.anaconda.com/) y ejecutar el siguiente comando.
+### Anaconda
+
+Con [Anaconda](https://www.anaconda.com/) y ejecutar el siguiente comando.
 
 ```bash
 conda env create --file languagemodel.yml
 ```
+
+### Docker
+Para probar su funcionamiento en docker se puede ejecutar el archivo bash. Esto creará una imagen y ejecutará un contenedor calculando la probabilidad de una frase por defecto. 
+
+```bash
+./build_run.sh
+```
+O hacer una imagen con el siguiente comando
+
+```bash
+docker build -t languagemodel .
+```
+Eso creará una imagen para después crear tantos contenedores como se requiera.
 
 ## Uso 
 
