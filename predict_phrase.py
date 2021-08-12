@@ -32,13 +32,15 @@ args = parser.parse_args()
 loss = CrossEntropyLoss()
 
 def calc_probability(vocabulary, one_hot_m, model, words):
-  corpus = clean_raw_corpus([words])
+  corpus = clean_raw_corpus(["<BOS> "+words+" <EOS>"])
   default = vocabulary.get(out_of_vocabulary_token)
   probability = 1.0
-  for word in corpus.split(" "):
-    vec = one_hot_m[vocabulary.get(word, default)]
+  words = corpus.split(" ")
+  for i in range(len(words)-1):
+    n_word = vocabulary.get(words[i+1], default)
+    vec = one_hot_m[vocabulary.get(words[i], default)]
     output = model(vec).squeeze()
-    probability *= output[np.argmax(output)]
+    probability *= output[n_word]
   return probability
 
 
