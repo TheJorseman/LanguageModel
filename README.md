@@ -65,6 +65,20 @@ python model.py
 ```bash
 python predict_phrase.py "Frase de prueba"
 ```
+
+### Modelo pre-entrenado
+
+Para obtener los archivos ya entrenados con 800 epocas estan los archivos model-final.bin, vocabulary, embedding.
+Fue entrenado con un corpus reducido debido a que el corpus completo tiene mas de un millon de bigramas para el entrenamiento.
+Fueron guardados con pickle por lo que para cargarlos basta con:
+```python
+
+vocabulary = pickle.load(open("vocabulary", "rb"))
+model = pickle.load(open("model-final.bin", "rb"))
+```
+Teniendo importadas las clases necesarias para loq ue se quiera hacer.
+
+
 ## Contribuir
 Las solicitudes de extracción son bienvenidas. Para cambios importantes, abra un problema primero para discutir qué le gustaría cambiar.
 
